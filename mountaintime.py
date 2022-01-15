@@ -73,21 +73,27 @@ def map():
         
     print(f + g + h + i + j)
 def date():
-    x = random.randint(0, 11)
+    x = random.randint(1600, 2000)
     month = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
-    leapyear = ["1952", "1956", "1960", "1964", "1968", "1972", "1976", "1980", "1984", "1988", "1992", "1996", "2000", "2004", "2008", "2012", "2016", "2020", "2024", "2028"]
-    if x == 0 or x == 2 or x == 4 or x == 6 or x == 7 or x == 9 or x == 11:
-        y = random.randint(1, 31)
-    if x == 1:
-        y = random.randint(1, 29)
+    if x % 4 == 0 and x % 400 != 100 and x % 400 != 200 and x % 400 != 300:
+        y = random.randint(0, 11)
+        if y == 0 or y == 2 or y == 4 or y == 6 or y == 7 or y == 9 or y == 11:
+            z = random.randint(1, 31)
+        if y == 1:
+            z = random.randint(1, 29)
+        else:
+            z = random.randint(1, 30)
+        print(month[y],z,",",x)
+        
     else:
-        y = random.randint(1, 30)
-    if x == 1 and y == 29:
-        z = random.randint(0,19)
-        print(month[x], y, leapyear[z])
-    else:
-        z = random.randint(1950, 2030)
-        print(month[x], y, ",", z)
+        y = random.randint(0, 11)
+        if y == 0 or y == 2 or y == 4 or y == 6 or y == 7 or y == 9 or y == 11:
+            z = random.randint(1, 31)
+        if y == 1:
+            z = random.randint(1, 28)
+        else:
+            z = random.randint(1, 30)
+        print(month[y],z,",",x)
         
 map()
 date()
